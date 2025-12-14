@@ -5,6 +5,7 @@ import DashboardPage from './pages/dashboard/DashboardPage'
 import ProfilePage from './pages/profile/ProfilePage'
 import LoginPage from './pages/auth/LoginPage'
 import Pinjaman from './pages/dashboard/PinjamanPage'
+import Anggota from './pages/dashboard/AnggotaPage'
 
 // Protected Route Component
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -28,6 +29,7 @@ function App() {
           <Route index element={<Navigate to="/dashboard" replace />} />
           <Route path="dashboard" element={<DashboardPage />} />
           <Route path="pinjaman" element={<Pinjaman />} />
+          <Route path="anggota" element={<Anggota />} />
           <Route path="profile" element={<ProfilePage />} />
         </Route>
       </Routes>

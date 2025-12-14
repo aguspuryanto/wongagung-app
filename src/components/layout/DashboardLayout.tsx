@@ -1,7 +1,7 @@
 // src/components/layout/DashboardLayout.tsx
 import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
-import { LayoutDashboard, User, LogOut, Menu, X } from 'lucide-react'
+import { LayoutDashboard, User, LogOut, Menu, X, DollarSign, Users } from 'lucide-react'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
 
@@ -26,7 +26,12 @@ export default function DashboardLayout() {
     {
       name: 'Pinjaman',
       path: '/pinjaman',
-      icon: <LayoutDashboard className="h-5 w-5" />,
+      icon: <DollarSign className="h-5 w-5" />,
+    },
+    {
+      name: 'Anggota',
+      path: '/anggota',
+      icon: <Users className="h-5 w-5" />,
     },
     {
       name: 'Profile',
