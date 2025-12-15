@@ -7,12 +7,31 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Textarea } from "@/components/ui/textarea"
 import { FormData } from "@/types/anggota"
 
+import { 
+  getAnggotaList, 
+  createAnggota, 
+  updateAnggota,
+  deleteAnggota,
+  uploadAnggotaDocument
+} from '@/services/api';
+
 export default function AnggotaForm() {
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
 
-  const onSubmit = (data: FormData) => {
-    console.log(data)
-    // Handle form submission here
+  const onSubmit = async (formData: FormData) => {
+    try {
+      // Create new member
+      const newMember = await createAnggota(formData);
+      
+      // If there are files to upload
+      if (formData.bpkbFile) {
+        await uploadAnggotaDocument(newMember.id, formData.bpkbFile, 'bpkb');
+      }
+      
+      // Handle success
+    } catch (error) {
+      console.error('Error:', error);
+    }
   }
 
   return (
